@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Price Predictor</title>
+</head>
+<body>
+    <h1>Laptop Price Predictor</h1>
+    <form action="/predict" method="post">
+        <!-- Add form fields corresponding to user inputs -->
+        <!-- Brand -->
+        <label for="company">Brand:</label>
+        <select id="company" name="company">
+            {% for brand in df['Company'].unique() %}
+            <option value="{{ brand }}">{{ brand }}</option>
+            {% endfor %}
+        </select>
+        <!-- Type -->
+        <label for="laptop_type">Type:</label>
+        <select id="laptop_type" name="laptop_type">
+            {% for laptop_type in df['TypeName'].unique() %}
+            <option value="{{ laptop_type }}">{{ laptop_type }}</option>
+            {% endfor %}
+        </select>
+        <!-- Add other form fields here (e.g., RAM, Weight, etc.) -->
+        <!-- Submit Button -->
+        <input type="submit" value="Predict Price">
+    </form>
+</body>
+</html>
